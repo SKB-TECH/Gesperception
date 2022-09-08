@@ -8,12 +8,12 @@ $crud= new crud();
 if(isset($_POST['submit'])){ 
           $data= array( 
               "noms"  => $crud->escape_string($_POST['noms']),            
-                      "fonction"  => $crud->escape_string($_POST['fonction']), 
-                                        "password"  => $crud->escape_string($_POST['password']), 
-                                                   "login"  => $crud->escape_string($_POST['login']) 
+              "fonction"  => $crud->escape_string($_POST['fonction']), 
+              "password"  => $crud->escape_string($_POST['password']), 
+              "login"  => $crud->escape_string($_POST['login']) 
             ); 
-            $crud->insert($data,"User"); 
-
+          
+          $crud->insert($data,"User"); 
           if($data) { 
             echo 'insert successfully'; 
             header('location:users.php'); 

@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="../../Styles/style.css">
     <link rel="stylesheet" href="../font/all.min.css">
     <title>menu</title>
     <link rel="stylesheet" href="../font/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -18,12 +19,11 @@
 
 <body>
 
-             <?php include("static/header.php") ?>
+    <?php include ("../static/header.php")?>
     <main id="main">
-             <?php include("static/sidebar.php") ?>
+             <?php include("../static/sidebar.php") ?>
         <section id="principal">
-             <?php include("static/topcard.php") ?>
-            
+             <?php include("../static/topcard.php") ?>
             <div class="tableau">
                 <div>
                     <div class="container-form">
@@ -37,6 +37,9 @@
                             <option value="">Annee-Scolaire</option>
                             <option value="">Date</option>
                         </select>
+                            <button class="btne">Exporter F Excel</button>
+                            <button class="btni">Importer F Excel</button>
+                            <button class="btnim">Fichier PDF</button>
                     </form>
                     </div>
                     <table class="tableau-style">

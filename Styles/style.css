@@ -133,6 +133,7 @@ tbody tr:nth-child(even){
     background:none;
     padding: 8px;
     position: relative;
+    font-size: 10px;
 }
 .container-card1{
     margin-top: 50px;
@@ -160,6 +161,7 @@ tbody tr:nth-child(even){
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ffffff;
+   
     
 }
 .logo-icon{
@@ -179,4 +181,37 @@ tbody tr:nth-child(even){
 }
 .btn:hover{
    
+}
+
+.btne{
+    font-size: 12px;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+    background-color: rgb(55, 187, 55);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.15);
+}
+
+
+.btni{
+    font-size: 12px;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+    background-color: rgb(227, 7, 7);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.15);
+}
+.btnim{
+    font-size: 12px;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+    background-color: rgb(210, 210, 29);
+    color: #ffffff;
+    font-weight: 600;
+    padding: 8px;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.15);
 }

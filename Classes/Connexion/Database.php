@@ -2,6 +2,7 @@
 /**
  * cette classe permet de se connecte a la base des donnees
  */
+    
     class Database
     {
         private $_localhost = 'localhost'; 

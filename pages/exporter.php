@@ -1,6 +1,5 @@
 <?php
     include "connexion.php";
-
     $dt = '';
     if(isset($_POST["test"])){
     $sql = "SELECT * FROM etudiants";
