@@ -10,7 +10,7 @@
         private $_password = ''; 
         private $_dbname = 'nyalukemba_db'; 
          
-        protected $connection; 
+        public $connection; 
          
          public function __construct() 
          { 

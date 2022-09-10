@@ -9,11 +9,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/style.css">
     <link rel="stylesheet" href="../../Styles/style.css">
-    <link rel="stylesheet" href="../font/all.min.css">
+    <link rel="stylesheet" href="../../Styles/styleII.css">
+    <link rel="stylesheet" href="../../font/font-awesome-4.7.0/css/font-awesome.min.css">
     <title>menu</title>
-    <link rel="stylesheet" href="../font/font-awesome-4.7.0/css/font-awesome.min.css">
+    
 
 </head>
 
@@ -39,7 +39,7 @@
                         </select>
                             <button class="btne">Exporter F Excel</button>
                             <button class="btni">Importer F Excel</button>
-                            <button class="btnim">Fichier PDF</button>
+                            <button class="btnim modal-btn modal-trigger">Nouveau</button>
                     </form>
                     </div>
                     <table class="tableau-style">
@@ -104,6 +104,23 @@
             </div>
         </section>
     </main>
-</body>
 
+    <!-- Fenetre modal pour l'enregistrement -->
+    <div class="modal-container">
+        <div class="overlay modal-trigger">
+        </div>
+        <div class="modal">
+            <button class="close-modal modal-trigger">X</button>
+            <form action="" class="form-control">
+                <input type="text" name="" id="" class="inputs">
+                <input type="text" name="" id="" class="inputs">
+                <input type="text" name="" id="" class="inputs">
+                <input type="text" name="" id="" class="inputs">
+                <input type="text" name="" id="" class="inputs">
+                <input type="text" name="" id="" class="inputs">
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../../Classes/Javascript/modal.js"></script>
 </html>
