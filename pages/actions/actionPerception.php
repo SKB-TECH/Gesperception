@@ -16,7 +16,6 @@ if (isset($_POST['action']) && $_POST['action'] == "view") {
                 <th>Noms</th>
                 <th>Classe</th>
                 <th></th>
-                <th></th>
             </thead>
             <tbody>';
 
