@@ -238,26 +238,7 @@
                  <!-- fin depense -->
 
                  <!-- caisse -->
-                 <div class="col-sm-3">
-                     
-                     <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                         <div>
-                             <h4 class="fs-2">Autres Depenses par periode </h4>
-                             <form method="POST" action="impressions/depensesParMois.php" >
-                                                    <div class="col-md-12 form-group">
-                                                          <label for="#mois">Debut de la periode </label>
-                                                          <input type="date" id="mois" name="debut" class="form-control mb-6 mr-sm-2" placeholder="Choix du mois"  required>    
-                                                    </div><br>
-                                                    <div class="col-md-12 form-group">
-                                                          <label for="#mois">Fin  de la periode  </label>
-                                                          <input type="date" id="fin" name="fin" class="form-control mb-6 mr-sm-2" placeholder="Choix du mois"  required>    
-                                                    </div><br>
-                                             
-                                                     <button type="submit" class="btn btn-success form-control  col-md-12" name="valider"><i class="fa fa-print"></i>Voir et imprimer</button>
-                                     </form>
-                         </div>
-                     </div>
-                 </div>
+                
                  <!-- fin caisse -->
 
                                   <!-- caisse -->

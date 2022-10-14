@@ -1,3 +1,31 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Sep 19, 2022 at 01:22 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `nyalukemba_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `autres_depenses`
+--
 
 CREATE TABLE `autres_depenses` (
   `code_autres` int(11) NOT NULL,
@@ -6,7 +34,33 @@ CREATE TABLE `autres_depenses` (
   `idUser` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `avance`
+--
+
+CREATE TABLE `avance` (
+  `id` int(11) NOT NULL,
+  `idagent` int(11) NOT NULL,
+  `mois` varchar(55) NOT NULL,
+  `montant` float NOT NULL DEFAULT 0,
+  `um` varchar(15) NOT NULL,
+  `dates` varchar(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `avance`
+--
+
+INSERT INTO `avance` (`id`, `idagent`, `mois`, `montant`, `um`, `dates`) VALUES
+(3, 1, '2022-06', 20000, 'Fc', '2022-09-29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `classes`
+--
 
 CREATE TABLE `classes` (
   `code_classe` int(11) NOT NULL,
@@ -17,7 +71,30 @@ CREATE TABLE `classes` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `eleves`
+-- Table structure for table `depense`
+--
+
+CREATE TABLE `depense` (
+  `id` int(11) NOT NULL,
+  `motif` text NOT NULL,
+  `montant` int(11) NOT NULL,
+  `um` varchar(15) NOT NULL,
+  `mois` varchar(25) NOT NULL,
+  `dates` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `depense`
+--
+
+INSERT INTO `depense` (`id`, `motif`, `montant`, `um`, `mois`, `dates`) VALUES
+(2, 'Achat Fournitures de bureau', 120000, '$', '2022-03', '2022-09-23'),
+(4, 'Coordination', 34500, '$', '2022-07', '2022-09-23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eleves`
 --
 
 CREATE TABLE `eleves` (
@@ -32,7 +109,7 @@ CREATE TABLE `eleves` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `eleves`
+-- Dumping data for table `eleves`
 --
 
 INSERT INTO `eleves` (`id`, `nom`, `postnom`, `prenom`, `sexe`, `date_naissance`, `lieu_naissance`, `classe`) VALUES
@@ -54,7 +131,6 @@ INSERT INTO `eleves` (`id`, `nom`, `postnom`, `prenom`, `sexe`, `date_naissance`
 (17, 'o', 'd', 'd', 'y', '2022-09-14', '', ''),
 (18, 'a', 't', 'a', 'b', '2022-09-14', 'r', 'a'),
 (19, 'o', 'd', 'd', 'y', '2022-09-14', '', ''),
-(20, 'a', 't', 'a', 'b', '2022-09-14', 'r', 'a'),
 (21, 'o', 'd', 'd', 'y', '2022-09-14', '', ''),
 (22, 'a', 't', 'a', 'b', '2022-09-14', 'r', 'a'),
 (23, 'o', 'd', 'd', 'y', '2022-09-14', '', ''),
@@ -78,7 +154,6 @@ INSERT INTO `eleves` (`id`, `nom`, `postnom`, `prenom`, `sexe`, `date_naissance`
 (41, 'Matabaro', 'mulume', 'Doddy', 'M', '2022-09-14', 'king', '17 ere'),
 (42, 'doddy', 'koko', 'rien', 'f', '2022-09-14', 'bkv', '18 ere'),
 (43, 'Matabaro', 'mulume', 'Doddy', 'M', '2022-09-14', 'king', '19 ere'),
-(44, 'doddy', 'koko', 'rien', 'f', '2022-09-14', 'bkv', '20 ere'),
 (45, 'Nom', 'Postom', 'Prenom', 'Sexe', '2022-09-14', 'Lieu', 'Classe'),
 (46, 'Matabaro', 'mulume', 'Doddy', 'M', '2022-09-14', 'king', '1 ere'),
 (47, 'doddy', 'koko', 'rien', 'f', '2022-09-14', 'bkv', '2 ere'),
@@ -197,16 +272,14 @@ INSERT INTO `eleves` (`id`, `nom`, `postnom`, `prenom`, `sexe`, `date_naissance`
 (163, 'Matabaro', 'mulume', 'Doddy', 'M', '2022-09-14', 'king', '13 ere'),
 (164, 'doddy', 'koko', 'rien', 'f', '2022-09-14', 'bkv', '14 ere'),
 (165, 'Matabaro', 'mulume', 'Doddy', 'M', '2022-09-14', 'king', '15 ere'),
-(166, 'doddy', 'koko', 'rien', 'f', '2022-09-14', 'bkv', '16 ere'),
 (167, 'Matabaro', 'mulume', 'Doddy', 'M', '2022-09-14', 'king', '17 ere'),
-(168, 'doddy', 'koko', 'rien', 'f', '2022-09-14', 'bkv', '18 ere'),
 (169, 'Matabaro', 'mulume', 'Doddy', 'M', '2022-09-14', 'king', '19 ere'),
-(170, 'doddy', 'koko', 'rien', 'f', '2022-09-14', 'bkv', '20 ere');
+(171, 'KOKO', 'MIDESO', 'DM', 'M', '2022-09-07', 'Bukavu', 'IVemeHP');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `enseignants`
+-- Table structure for table `enseignants`
 --
 
 CREATE TABLE `enseignants` (
@@ -220,7 +293,7 @@ CREATE TABLE `enseignants` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `enseignants`
+-- Dumping data for table `enseignants`
 --
 
 INSERT INTO `enseignants` (`id`, `noms`, `grade`, `sexe`, `adresse`, `telephone`, `domaine`) VALUES
@@ -233,28 +306,31 @@ INSERT INTO `enseignants` (`id`, `noms`, `grade`, `sexe`, `adresse`, `telephone`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `frais`
+-- Table structure for table `frais`
 --
 
 CREATE TABLE `frais` (
   `id` int(11) NOT NULL,
   `libelle` varchar(50) NOT NULL,
   `montant_frais` double(50,0) NOT NULL,
-  `devise` varchar(50) NOT NULL
+  `devise` varchar(50) NOT NULL,
+  `tranche1` double NOT NULL DEFAULT 0,
+  `tranche2` double NOT NULL DEFAULT 0,
+  `tranche3` double NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `frais`
+-- Dumping data for table `frais`
 --
 
-INSERT INTO `frais` (`id`, `libelle`, `montant_frais`, `devise`) VALUES
-(1, 'Prime', 300, '$'),
-(2, 'frais divers', 30, '$');
+INSERT INTO `frais` (`id`, `libelle`, `montant_frais`, `devise`, `tranche1`, `tranche2`, `tranche3`) VALUES
+(1, 'Prime', 400, '$', 90, 140, 170),
+(6, 'Frais Divers', 60, '$', 20, 15, 20);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `options`
+-- Table structure for table `options`
 --
 
 CREATE TABLE `options` (
@@ -266,7 +342,7 @@ CREATE TABLE `options` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `paie`
+-- Table structure for table `paie`
 --
 
 CREATE TABLE `paie` (
@@ -281,18 +357,18 @@ CREATE TABLE `paie` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `paie`
+-- Dumping data for table `paie`
 --
 
 INSERT INTO `paie` (`id`, `idagent`, `montant`, `mituelle`, `avance`, `net`, `mois`, `dates`) VALUES
-(2, 4, 20000, 5000, 5000, 10000, '2022-3', '09/02/2022'),
-(12, 3, 45000, 4500, 4000, 36500, '2022-02', '2022-09-14'),
-(13, 3, 45000, 4500, 4000, 45678, '2022-02', '2022-09-23');
+(5, 3, 45000, 1000, 4000, 40000, '2022-02', '2022-09-22'),
+(6, 1, 45000, 4500, 0, 40500, '2022-02', '2022-09-22'),
+(7, 1, 45000, 4500, 0, 40500, '2022-02', '2022-09-21');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `perception`
+-- Table structure for table `perception`
 --
 
 CREATE TABLE `perception` (
@@ -305,51 +381,26 @@ CREATE TABLE `perception` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `perception`
+-- Dumping data for table `perception`
 --
 
 INSERT INTO `perception` (`id`, `date_perception`, `montant_percu`, `idEleve`, `idFrais`, `idUser`) VALUES
-(1, '2022-09-14', 200, 1, 1, 1),
-(2, '2022-09-14', 50, 1, 1, 1),
-(4, '2022-09-15', 60, 170, 1, 1),
-(5, '2022-09-15', 60, 170, 1, 1),
-(6, '2022-09-15', 60, 170, 1, 1),
-(7, '2022-09-15', 60, 167, 1, 1),
-(8, '2022-09-15', 60, 170, 1, 1),
-(9, '2022-09-15', 60, 170, 1, 1),
-(10, '2022-09-15', 60, 170, 1, 1),
-(11, '2022-09-15', 60, 170, 1, 1),
-(12, '2022-09-15', 60, 169, 1, 1),
-(13, '2022-09-15', 60, 169, 1, 1),
-(14, '2022-09-15', 60, 168, 1, 1),
-(15, '2022-09-15', 60, 168, 1, 1),
-(16, '2022-09-15', 60, 168, 1, 1),
-(17, '2022-09-16', 60, 169, 1, 1),
-(18, '2022-09-15', 60, 169, 1, 1),
-(19, '2022-09-15', 60, 169, 1, 1),
-(20, '2022-09-15', 33, 169, 1, 1),
-(21, '2022-09-15', 7, 169, 1, 1),
-(22, '2022-09-15', 60, 169, 1, 1),
-(23, '2022-09-15', 60, 169, 1, 1),
-(24, '2022-09-14', 60, 168, 1, 1),
-(25, '2022-09-15', 60, 169, 1, 1),
-(26, '2022-09-15', 60, 169, 1, 1),
-(27, '2022-09-15', 80, 168, 1, 1),
-(28, '2022-09-15', 60, 169, 1, 1),
-(29, '2022-09-14', 60, 168, 1, 1),
-(30, '2022-09-15', 60, 168, 1, 1),
-(31, '2022-09-15', 60, 168, 1, 1),
-(32, '2022-09-15', 60, 168, 1, 1),
-(33, '2022-09-15', 60, 168, 1, 1),
-(34, '2022-09-15', 60, 168, 1, 1),
-(35, '2022-09-15', 60, 167, 1, 1),
-(36, '2022-09-05', 145, 1, 2, 1),
-(37, '2022-09-16', 120, 167, 1, 1);
+(49, '2022-09-18', 10, 170, 1, 1),
+(50, '2022-09-18', 100, 170, 1, 1),
+(51, '2022-09-18', 200, 170, 1, 1),
+(52, '2022-09-18', 10, 170, 1, 1),
+(53, '2022-09-18', 10, 170, 1, 1),
+(54, '2022-09-18', 10, 170, 1, 1),
+(55, '2022-09-20', 45, 171, 1, 1),
+(56, '2022-09-22', 156, 171, 1, 1),
+(57, '2022-09-13', 156, 171, 1, 1),
+(58, '2022-09-20', 45, 1, 1, 1),
+(59, '2022-09-20', 200, 1, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `section`
+-- Table structure for table `section`
 --
 
 CREATE TABLE `section` (
@@ -358,7 +409,7 @@ CREATE TABLE `section` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `section`
+-- Dumping data for table `section`
 --
 
 INSERT INTO `section` (`code_section`, `designation`) VALUES
@@ -398,7 +449,7 @@ INSERT INTO `section` (`code_section`, `designation`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `User`
+-- Table structure for table `User`
 --
 
 CREATE TABLE `User` (
@@ -410,7 +461,7 @@ CREATE TABLE `User` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Déchargement des données de la table `User`
+-- Dumping data for table `User`
 --
 
 INSERT INTO `User` (`code_user`, `noms`, `fonction`, `password`, `login`) VALUES
@@ -419,107 +470,122 @@ INSERT INTO `User` (`code_user`, `noms`, `fonction`, `password`, `login`) VALUES
 (3, 'doddy2', 'Secretaire AVEC', 'admin', 'admin');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `autres_depenses`
+-- Indexes for table `autres_depenses`
 --
 ALTER TABLE `autres_depenses`
   ADD PRIMARY KEY (`code_autres`);
 
 --
--- Index pour la table `classes`
+-- Indexes for table `classes`
 --
 ALTER TABLE `classes`
   ADD PRIMARY KEY (`code_classe`);
 
 --
--- Index pour la table `eleves`
+-- Indexes for table `eleves`
 --
 ALTER TABLE `eleves`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `enseignants`
+-- Indexes for table `enseignants`
 --
 ALTER TABLE `enseignants`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `frais`
+-- Indexes for table `frais`
 --
 ALTER TABLE `frais`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `options`
+-- Indexes for table `options`
 --
 ALTER TABLE `options`
   ADD PRIMARY KEY (`code_option`);
 
 --
--- Index pour la table `perception`
+-- Indexes for table `paie`
+--
+ALTER TABLE `paie`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `perception`
 --
 ALTER TABLE `perception`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `section`
+-- Indexes for table `section`
 --
 ALTER TABLE `section`
   ADD PRIMARY KEY (`code_section`);
 
 --
--- Index pour la table `User`
+-- Indexes for table `User`
 --
 ALTER TABLE `User`
   ADD PRIMARY KEY (`code_user`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `eleves`
+-- AUTO_INCREMENT for table `eleves`
 --
 ALTER TABLE `eleves`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
--- AUTO_INCREMENT pour la table `enseignants`
+-- AUTO_INCREMENT for table `enseignants`
 --
 ALTER TABLE `enseignants`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `frais`
+-- AUTO_INCREMENT for table `frais`
 --
 ALTER TABLE `frais`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `options`
+-- AUTO_INCREMENT for table `options`
 --
 ALTER TABLE `options`
   MODIFY `code_option` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `perception`
+-- AUTO_INCREMENT for table `paie`
 --
-ALTER TABLE `perception`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+ALTER TABLE `paie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT pour la table `section`
+-- AUTO_INCREMENT for table `perception`
+--
+ALTER TABLE `perception`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+
+--
+-- AUTO_INCREMENT for table `section`
 --
 ALTER TABLE `section`
   MODIFY `code_section` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
---t
--- AUTO_INCREMENT pour la table `User`
+--
+-- AUTO_INCREMENT for table `User`
 --
 ALTER TABLE `User`
   MODIFY `code_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

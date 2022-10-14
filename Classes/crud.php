@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 include_once('Connexion/Database.php');
 
 class Crud extends Database
@@ -98,12 +95,9 @@ class Crud extends Database
         {
                 $sql = "UPDATE enseignants SET noms=:nm,sexe=:se,grade=:gr,domaine=:do,adresse=:ad,telephone=:te WHERE id=:id";
                 $stms = $this->connection->prepare($sql);
-                $stms->execute(([
-                        'nm' => $nm, 'se' => $se, 'gr' => $gr, 'do' => $do, 'ad' => $ad, 'te' => $te, 'id' => $id
-                ]));
+                $stms->execute((['nm' => $nm, 'se' => $se, 'gr' => $gr, 'do' => $do, 'ad' => $ad, 'te' => $te, 'id' => $id]));
                 return true;
         }
-
 
         public function SelectDataWhere($table1, $table2)
         {

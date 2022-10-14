@@ -30,24 +30,24 @@ $taches = new crud();
 
 <body>
 
-    <div class="d-flex" id="wrapper" >
+    <div class="d-flex" id="wrapper">
         <!-- sidebar -->
         <div class="bg-primary" style="z-index: 0;">
             <?php require_once("../pages/Menus/Sidebar.php") ?>
         </div>
         <!-- sidebar end -->
-        <div class="container" style="z-index:0;" >
+        <div class="container" style="z-index:0;">
             <!-- Debut card -->
             <div class="container-fluid px-4" style="margin-top:70px;">
                 <div class="row g-3 my-3">
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant_percu",'perception');
-                                    $data=$res->fetch();
-                                    $entre=$data[0];
+                                <?php $res = $taches->Compte("montant_percu", 'perception');
+                                $data = $res->fetch();
+                                $entre = $data[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($entre)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($entre) ?> &nbsp;FC</h6>
                                 <p class="fs-5">ENTREES</p>
                             </div>
                         </div>
@@ -56,11 +56,11 @@ $taches = new crud();
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant",'depense');
-                                    $res=$res->fetch();
-                                    $sortie1=$res[0];
+                                <?php $res = $taches->Compte("montant", 'depense');
+                                $res = $res->fetch();
+                                $sortie1 = $res[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($sortie1)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($sortie1) ?> &nbsp;FC</h6>
                                 <p class="fs-5">DEPENSES</p>
                             </div>
                         </div>
@@ -68,24 +68,24 @@ $taches = new crud();
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("montant",'avance');
-                                    $des=$res->fetch();
-                                    $avance=$des[0]
+                            <div>
+                                <?php $res = $taches->Compte("montant", 'avance');
+                                $des = $res->fetch();
+                                $avance = $des[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($avance)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($avance) ?> &nbsp;FC</h6>
                                 <p class="fs-5">AVANCES</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("net",'paie');
-                                    $sal=$res->fetch();
-                                    $paie=$sal[0]
+                            <div>
+                                <?php $res = $taches->Compte("net", 'paie');
+                                $sal = $res->fetch();
+                                $paie = $sal[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($paie)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($paie) ?> &nbsp;FC</h6>
                                 <p class="fs-5">SALAIRES</p>
                             </div>
                         </div>
@@ -94,8 +94,8 @@ $taches = new crud();
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div style="font-weight: 400">
-                                <h6 class="fs-2 font-bold"><?php echo($entre-$sortie1-$avance-$paie);?> &nbsp;FC</h6>
+                            <div style="font-weight: 400">
+                                <h6 class="fs-2 font-bold"><?php echo ($entre - $sortie1 - $avance - $paie); ?> &nbsp;FC</h6>
                                 <p class="fs-5">SOLDE</p>
                             </div>
                         </div>
@@ -118,7 +118,7 @@ $taches = new crud();
                     <div class="clog-lg-6">
                         <button type="button" class="btn btn-primary m-1 float-right"><i class="fa fa-briefcase" data-toggle="modal" data-target="#addModal"> Ajouter</i>
                         </button>&nbsp;&nbsp;&nbsp;
-                    
+
                         <a href="./Menus/actionDepense.php?export=excel" class="btn btn-success m-1 float-lg"><i class="fa fa-table fa-lg"></i>
                             Exporter</a>&nbsp;&nbsp;&nbsp;
                     </div>
@@ -150,21 +150,7 @@ $taches = new crud();
                 <div class="modal-body px-4">
                     <form action="" method="POST" id="form-data">
                         <div class="form-group">
-                            <select name="motif" class="form-control" required>
-                            <option value="Autres">Selectionner le motif ..</option>
-                                <option value="Entretien">Entretier</option>
-                                <option value="Coordination">Coordination</option>
-                                <option value="Sport et Loisir">Sport et Loisir</option>
-                                <option value="Fete">Fete</option>
-                                <option value="Achat Fournitures de bureau">Achat Fournitures de bureau</option>
-                                <option value="Construction">Construction</option>
-                                <option value="Sortie scientifque">Sorite scientifque</option>
-                                <option value="Assistance Maladie">Assistance Maladie</option>
-                                <option value="Assistance Mariage">Assistance Mariage</option>
-                                <option value="Assistance Deuil">Assistance Deuil</option>
-                                <option value="Rehabilitation">Rehabilitation</option>
-                            </select>
-        
+                            <input type="text" name="motif" placeholder="motif de la depense" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <input type="text" name="montant" class="form-control" placeholder="montant" required>
@@ -191,7 +177,7 @@ $taches = new crud();
             </div>
         </div>
     </div>
-    
+
     <!-- Modification Modal -->
     <div class="modal fade" id="editModal">
         <div class="modal-dialog modal-dialog-centered">
@@ -207,21 +193,7 @@ $taches = new crud();
                     <form action="" method="POST" id="edit-form-data">
                         <input type="hidden" id="id" name="id">
                         <div class="form-group">
-                            <select name="motif" id="motif" class="form-control" required>
-                            <option value="Autres">Selectionner le motif ..</option>
-                                <option value="Entretien">Entretier</option>
-                                <option value="Coordination">Coordination</option>
-                                <option value="Sport et Loisir">Sport et Loisir</option>
-                                <option value="Fete">Fete</option>
-                                <option value="Achat Fournitures de bureau">Achat Fournitures de bureau</option>
-                                <option value="Construction">Construction</option>
-                                <option value="Sortie scientifque">Sorite scientifque</option>
-                                <option value="Assistance Maladie">Assistance Maladie</option>
-                                <option value="Assistance Mariage">Assistance Mariage</option>
-                                <option value="Assistance Deuil">Assistance Deuil</option>
-                                <option value="Rehabilitation">Rehabilitation</option>
-                            </select>
-        
+                            <input type="text" name="motif" id="motif" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <input type="text" id="montant" name="montant" class="form-control" placeholder="montant" required>
@@ -250,7 +222,7 @@ $taches = new crud();
     </div>
     <!-- Fin de la fenetre modal Modification-->
 
-<!-- Fin de la fenetre modal -->
+    <!-- Fin de la fenetre modal -->
     <!-- Les lebrairies Javascript -->
     <script>
         /** fonction pour Afficher les donnes avec ajax  */
@@ -279,14 +251,14 @@ $taches = new crud();
                 if ($("#form-data")[0].checkValidity()) {
                     e.preventDefault();
                     $.ajax({
-                        url:"./Menus/actionDepense.php",
-                        type:"POST",
-                        data: $("#form-data").serialize()+"&action=insert",
+                        url: "./Menus/actionDepense.php",
+                        type: "POST",
+                        data: $("#form-data").serialize() + "&action=insert",
                         success: function(reponse) {
-                        Swal.fire(
-                            'Felicitation!',
-                            'Depense Ajouté(e) avec success !',
-                            'success'
+                            Swal.fire(
+                                'Felicitation!',
+                                'Depense Ajouté(e) avec success !',
+                                'success'
                             )
 
                             $("#addModal").modal('hide');
@@ -298,24 +270,26 @@ $taches = new crud();
             })
 
             /** La fonction pour la modification  */
-            $("body").on("click",".editBtn",function(e){
+            $("body").on("click", ".editBtn", function(e) {
                 e.preventDefault();
-                edit_id=$(this).attr('id');
+                edit_id = $(this).attr('id');
 
                 $.ajax({
-                    url:"./Menus/actionDepense.php",
-                    type:"POST",
-                    data:{edit_id:edit_id},
-                    success:function(reponse){
-                       data=JSON.parse(reponse);
-                      
-                       $("#id").val(data.id);
-                       $("#motif").val(data.motif);
-                       $("#montant").val(data.montant);
-                       $("#um").val(data.um);
-                       $("#mois").val(data.mois)
-                       $("#dates").val(data.dates);
-                      
+                    url: "./Menus/actionDepense.php",
+                    type: "POST",
+                    data: {
+                        edit_id: edit_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+
+                        $("#id").val(data.id);
+                        $("#motif").val(data.motif);
+                        $("#montant").val(data.montant);
+                        $("#um").val(data.um);
+                        $("#mois").val(data.mois)
+                        $("#dates").val(data.dates);
+
                     }
                 })
             });
@@ -325,14 +299,14 @@ $taches = new crud();
                 if ($("#edit-form-data")[0].checkValidity()) {
                     e.preventDefault();
                     $.ajax({
-                        url:"./Menus/actionDepense.php",
-                        type:"POST",
-                        data: $("#edit-form-data").serialize()+"&action=update",
+                        url: "./Menus/actionDepense.php",
+                        type: "POST",
+                        data: $("#edit-form-data").serialize() + "&action=update",
                         success: function(reponse) {
-                        Swal.fire(
-                            'Felicitation!',
-                            'Depense Modifier avec success !',
-                            'success'
+                            Swal.fire(
+                                'Felicitation!',
+                                'Depense Modifier avec success !',
+                                'success'
                             )
 
                             $("#editModal").modal('hide');
@@ -344,13 +318,12 @@ $taches = new crud();
             })
 
             /** Fonction Supprimer de la table */
-            $("body").on('click','.deleteBtn',function(e){
+            $("body").on('click', '.deleteBtn', function(e) {
                 e.preventDefault();
-                var tr=$(this).closest('tr');
-                del_id=$(this).attr('id');
+                var tr = $(this).closest('tr');
+                del_id = $(this).attr('id');
 
-                Swal.fire
-                ({
+                Swal.fire({
                     title: 'Voulez-vous supprimer cette information ?',
                     text: "une fois supprimer vous ne l'aurez plus !!",
                     icon: 'warning',
@@ -358,46 +331,48 @@ $taches = new crud();
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes,Delete !!!'
-                    }).then((result) => {
+                }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                        url:"./Menus/actionDepense.php",
-                        type:"POST",
-                        data: {del_id:del_id},
-                        success: function(reponse) {
-                           tr.css('background-color','#ff6666')
-                            Swal.fire(
-                            'Felicitation!!!',
-                            'Suppression effectuée avec success !',
-                            'success'
-                            )
-                            showAllUser();
-                        }
-                        
-                    });
+                            url: "./Menus/actionDepense.php",
+                            type: "POST",
+                            data: {
+                                del_id: del_id
+                            },
+                            success: function(reponse) {
+                                tr.css('background-color', '#ff6666')
+                                Swal.fire(
+                                    'Felicitation!!!',
+                                    'Suppression effectuée avec success !',
+                                    'success'
+                                )
+                                showAllUser();
+                            }
+
+                        });
                     }
                 })
             })
 
 
             /** Info plus */
-            $("body").on("click",'.infoBtn',function(e)
-            {
+            $("body").on("click", '.infoBtn', function(e) {
                 e.preventDefault();
-                info_id= $(this).attr('id');
+                info_id = $(this).attr('id');
                 $.ajax({
-                    url:"./Menus/actionDepense.php",
-                    type:"POST",
-                    data:{info_id:info_id},
-                    success:function(reponse){
-                        data=JSON.parse(reponse);
-                        Swal.fire(
-                            {
-                                title:'<Strong class="text-left"> ID:'+data.id+'</Strong>',
-                                type:"info",
-                                html:'<b>Motif:'+data.motif+'</b><br/><b class="text-left">Mois:'+data.mois+'</b></br><b class="text-left">Montant:'+data.montant+data.um+'</b></br><b class="text-left">Date:'+data.dates+'</b>',
-                                showCancelButton:true
-                           
+                    url: "./Menus/actionDepense.php",
+                    type: "POST",
+                    data: {
+                        info_id: info_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+                        Swal.fire({
+                                title: '<Strong class="text-left"> ID:' + data.id + '</Strong>',
+                                type: "info",
+                                html: '<b>Motif:' + data.motif + '</b><br/><b class="text-left">Mois:' + data.mois + '</b></br><b class="text-left">Montant:' + data.montant + data.um + '</b></br><b class="text-left">Date:' + data.dates + '</b>',
+                                showCancelButton: true
+
                             }
 
                         )
@@ -406,8 +381,8 @@ $taches = new crud();
                         console.log(info_id);
                     }
                 })
-                
-                
+
+
             });
         });
     </script>
