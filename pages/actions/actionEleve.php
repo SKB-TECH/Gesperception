@@ -57,7 +57,6 @@
     
     /** Fonction insert dans la bdd */
     if(isset($_POST['action']) && $_POST['action']=="insert"){
-        
         $nom=$_POST['nom'];
         $postnom=$_POST['postnom'];
         $prenom=$_POST['prenom'];

@@ -30,24 +30,24 @@ $taches = new crud();
 
 <body>
 
-    <div class="d-flex" id="wrapper" >
+    <div class="d-flex" id="wrapper">
         <!-- sidebar -->
         <div class="bg-primary" style="z-index: 0;">
             <?php require_once("../pages/Menus/Sidebar.php") ?>
         </div>
         <!-- sidebar end -->
-        <div class="container" style="z-index:0;" >
+        <div class="container" style="z-index:0;">
             <!-- Debut card -->
             <div class="container-fluid px-4" style="margin-top:70px;">
                 <div class="row g-3 my-3">
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant_percu",'perception');
-                                    $data=$res->fetch();
-                                    $entre=$data[0];
+                                <?php $res = $taches->Compte("montant_percu", 'perception');
+                                $data = $res->fetch();
+                                $entre = $data[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($entre)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($entre) ?> &nbsp;FC</h6>
                                 <p class="fs-5">ENTREES</p>
                             </div>
                         </div>
@@ -56,11 +56,11 @@ $taches = new crud();
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant",'depense');
-                                    $res=$res->fetch();
-                                    $sortie1=$res[0];
+                                <?php $res = $taches->Compte("montant", 'depense');
+                                $res = $res->fetch();
+                                $sortie1 = $res[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($sortie1)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($sortie1) ?> &nbsp;FC</h6>
                                 <p class="fs-5">DEPENSES</p>
                             </div>
                         </div>
@@ -68,24 +68,24 @@ $taches = new crud();
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("montant",'avance');
-                                    $des=$res->fetch();
-                                    $avance=$des[0]
+                            <div>
+                                <?php $res = $taches->Compte("montant", 'avance');
+                                $des = $res->fetch();
+                                $avance = $des[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($avance)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($avance) ?> &nbsp;FC</h6>
                                 <p class="fs-5">AVANCES</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("net",'paie');
-                                    $sal=$res->fetch();
-                                    $paie=$sal[0]
+                            <div>
+                                <?php $res = $taches->Compte("net", 'paie');
+                                $sal = $res->fetch();
+                                $paie = $sal[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($paie)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($paie) ?> &nbsp;FC</h6>
                                 <p class="fs-5">SALAIRES</p>
                             </div>
                         </div>
@@ -94,8 +94,8 @@ $taches = new crud();
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div style="font-weight: 400">
-                                <h6 class="fs-2 font-bold"><?php echo($entre-$sortie1-$avance-$paie);?> &nbsp;FC</h6>
+                            <div style="font-weight: 400">
+                                <h6 class="fs-2 font-bold"><?php echo ($entre - $sortie1 - $avance - $paie); ?> &nbsp;FC</h6>
                                 <p class="fs-5">SOLDE</p>
                             </div>
                         </div>
@@ -118,7 +118,7 @@ $taches = new crud();
                     <div class="clog-lg-6">
                         <button type="button" class="btn btn-primary m-1 float-right"><i class="fa fa-usd fa-lg" data-toggle="modal" data-target="#addModal"> Ajouter</i>
                         </button>&nbsp;&nbsp;&nbsp;
-                    
+
                         <a href="./Menus/actionAvance.php?export=excel" class="btn btn-success m-1 float-lg"><i class="fa fa-table fa-lg"></i>
                             Exporter</a>&nbsp;&nbsp;&nbsp;
                     </div>
@@ -151,14 +151,14 @@ $taches = new crud();
                     <form action="" method="POST" id="form-data">
                         <div class="form-group">
                             <select name="agent" class="form-control" required>
-                            <option value="Autres">Selectionner l'agent</option>
-                            <?php 
-                                $data=$taches->selectalldata('enseignants');
-                                while ($row=$data->fetch()){?>
-                                <option value='<?php echo $row['id']?>'><?php echo $row['noms']?></option>
-                               <?php } ?>
+                                <option value="Autres">Selectionner l'agent</option>
+                                <?php
+                                $data = $taches->selectalldata('enseignants');
+                                while ($row = $data->fetch()) { ?>
+                                    <option value='<?php echo $row['id'] ?>'><?php echo $row['noms'] ?></option>
+                                <?php } ?>
                             </select>
-        
+
                         </div>
                         <div class="form-group">
                             <input type="month" name="mois" class="form-control" placeholder="mois" required>
@@ -185,7 +185,7 @@ $taches = new crud();
             </div>
         </div>
     </div>
-    
+
     <!-- Modification Modal -->
     <div class="modal fade" id="editModal">
         <div class="modal-dialog modal-dialog-centered">
@@ -202,12 +202,12 @@ $taches = new crud();
                         <input type="hidden" id="id" name="id">
                         <div class="form-group">
                             <select name="agent" id="agent" class="form-control" required>
-                            <option value="Autres">Selectionner l'agent</option>
-                            <?php 
-                                $data=$taches->selectalldata('enseignants');
-                                while ($row=$data->fetch()){?>
-                                <option value='<?php echo $row['id']?>'><?php echo $row['noms']?></option>
-                               <?php } ?>
+                                <option value="Autres">Selectionner l'agent</option>
+                                <?php
+                                $data = $taches->selectalldata('enseignants');
+                                while ($row = $data->fetch()) { ?>
+                                    <option value='<?php echo $row['id'] ?>'><?php echo $row['noms'] ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -225,7 +225,7 @@ $taches = new crud();
                         </div>
                         <div class="form-group">
                             <input type="date" id="dates" name="dates" class="form-control" placeholder="dates" required>
-                        </div>      
+                        </div>
                         <div class="form-group">
                             <input type="submit" name="update" id="update" class="btn btn-danger btn-block" value="MODIFIER">
                         </div>
@@ -236,7 +236,7 @@ $taches = new crud();
     </div>
     <!-- Fin de la fenetre modal Modification-->
 
-<!-- Fin de la fenetre modal -->
+    <!-- Fin de la fenetre modal -->
     <!-- Les lebrairies Javascript -->
     <script>
         /** fonction pour Afficher les donnes avec ajax  */
@@ -265,16 +265,16 @@ $taches = new crud();
                 if ($("#form-data")[0].checkValidity()) {
                     e.preventDefault();
                     $.ajax({
-                        url:"./Menus/actionAvance.php",
-                        type:"POST",
-                        data: $("#form-data").serialize()+"&action=insert",
+                        url: "./Menus/actionAvance.php",
+                        type: "POST",
+                        data: $("#form-data").serialize() + "&action=insert",
                         success: function(reponse) {
-                        Swal.fire(
-                            'Felicitation!',
-                            'Enseignant Ajouté(e) avec success !',
-                            'success'
+                            console.log(reponse);
+                            Swal.fire(
+                                'Felicitation!',
+                                'Avance Ajoutée avec success !',
+                                'success'
                             )
-
                             $("#addModal").modal('hide');
                             $("#form-data")[0].reset();
                             showAllUser();
@@ -284,24 +284,26 @@ $taches = new crud();
             })
 
             /** La fonction pour la modification  */
-            $("body").on("click",".editBtn",function(e){
+            $("body").on("click", ".editBtn", function(e) {
                 e.preventDefault();
-                edit_id=$(this).attr('id');
+                edit_id = $(this).attr('id');
 
                 $.ajax({
-                    url:"./Menus/actionAvance.php",
-                    type:"POST",
-                    data:{edit_id:edit_id},
-                    success:function(reponse){
-                       data=JSON.parse(reponse);
-                      
-                       $("#id").val(data.id);
-                       $("#agent").val(data.noms);
-                       $("#mois").val(data.mois);
-                       $("#montant").val(data.montant);
-                       $("#um").val(data.um)
-                       $("#dates").val(data.dates);
-                      
+                    url: "./Menus/actionAvance.php",
+                    type: "POST",
+                    data: {
+                        edit_id: edit_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+
+                        $("#id").val(data.id);
+                        $("#agent").val(data.noms);
+                        $("#mois").val(data.mois);
+                        $("#montant").val(data.montant);
+                        $("#um").val(data.um)
+                        $("#dates").val(data.dates);
+
                     }
                 })
             });
@@ -311,14 +313,14 @@ $taches = new crud();
                 if ($("#edit-form-data")[0].checkValidity()) {
                     e.preventDefault();
                     $.ajax({
-                        url:"./Menus/actionAvance.php",
-                        type:"POST",
-                        data: $("#edit-form-data").serialize()+"&action=update",
+                        url: "./Menus/actionAvance.php",
+                        type: "POST",
+                        data: $("#edit-form-data").serialize() + "&action=update",
                         success: function(reponse) {
-                        Swal.fire(
-                            'Felicitation!',
-                            'Enseignant Modifier avec success !',
-                            'success'
+                            Swal.fire(
+                                'Felicitation!',
+                                'Enseignant Modifier avec success !',
+                                'success'
                             )
 
                             $("#editModal").modal('hide');
@@ -330,13 +332,12 @@ $taches = new crud();
             })
 
             /** Fonction Supprimer de la table */
-            $("body").on('click','.deleteBtn',function(e){
+            $("body").on('click', '.deleteBtn', function(e) {
                 e.preventDefault();
-                var tr=$(this).closest('tr');
-                del_id=$(this).attr('id');
+                var tr = $(this).closest('tr');
+                del_id = $(this).attr('id');
 
-                Swal.fire
-                ({
+                Swal.fire({
                     title: 'Voulez-vous supprimer cette information ?',
                     text: "une fois supprimer vous ne l'aurez plus !!",
                     icon: 'warning',
@@ -344,46 +345,48 @@ $taches = new crud();
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes,Delete !!!'
-                    }).then((result) => {
+                }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                        url:"./Menus/actionAvance.php",
-                        type:"POST",
-                        data: {del_id:del_id},
-                        success: function(reponse) {
-                           tr.css('background-color','#ff6666')
-                            Swal.fire(
-                            'Felicitation!!!',
-                            'Suppression effectuée avec success !',
-                            'success'
-                            )
-                            showAllUser();
-                        }
-                        
-                    });
+                            url: "./Menus/actionAvance.php",
+                            type: "POST",
+                            data: {
+                                del_id: del_id
+                            },
+                            success: function(reponse) {
+                                tr.css('background-color', '#ff6666')
+                                Swal.fire(
+                                    'Felicitation!!!',
+                                    'Suppression effectuée avec success !',
+                                    'success'
+                                )
+                                showAllUser();
+                            }
+
+                        });
                     }
                 })
             })
 
 
             /** Info plus */
-            $("body").on("click",'.infoBtn',function(e)
-            {
+            $("body").on("click", '.infoBtn', function(e) {
                 e.preventDefault();
-                info_id= $(this).attr('id');
+                info_id = $(this).attr('id');
                 $.ajax({
-                    url:"./Menus/actionAvance.php",
-                    type:"POST",
-                    data:{info_id:info_id},
-                    success:function(reponse){
-                        data=JSON.parse(reponse);
-                        Swal.fire(
-                            {
-                                title:'<Strong class="text-left"> ID:'+data.idagent+'</Strong>',
-                                type:"info",
-                                html:'<b class="text-left">Mois:'+data.mois+'</b></br><b class="text-left">Montant:'+data.montant+data.um+'</b></br><b class="text-left">Date:'+data.dates+'</b>',
-                                showCancelButton:true
-                           
+                    url: "./Menus/actionAvance.php",
+                    type: "POST",
+                    data: {
+                        info_id: info_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+                        Swal.fire({
+                                title: '<Strong class="text-left"> ID:' + data.idagent + '</Strong>',
+                                type: "info",
+                                html: '<b class="text-left">Mois:' + data.mois + '</b></br><b class="text-left">Montant:' + data.montant + data.um + '</b></br><b class="text-left">Date:' + data.dates + '</b>',
+                                showCancelButton: true
+
                             }
 
                         )
@@ -392,8 +395,8 @@ $taches = new crud();
                         console.log(info_id);
                     }
                 })
-                
-                
+
+
             });
         });
     </script>
