@@ -159,8 +159,7 @@
                 <!-- Modal body -->
                 <div class="modal-body px-4">
                     <form action="" method="POST" id="edit-form-data">
-                        <input type="hidden" id="id" name="id">
-                        <input type="hidden" id="id" name="id">
+                        <input type="hidden" id="id" name="id" required>
                         <p id="details_eleve"></p>
                         <div class="form-group">
                             <label for="idFrais">Frais :  </label>
@@ -255,7 +254,8 @@
                     data:{edit_id:edit_id},
                     success:function(reponse){
                        data=JSON.parse(reponse);
-                       $("#id").val(data.id);
+                       console.log(data)
+                       $("#id").val(data.idPerc);
                        $("#details_eleve").text("Elève : "+data.nom+" "+data.postnom+" "+data.prenom+"     Classe: "+data.classe);
                        $("#idFrais").val(data.idFrais);
                        $("#montant").val(data.montant_percu);
@@ -276,6 +276,7 @@
                         type:"POST",
                         data: $("#edit-form-data").serialize()+"&action=update",
                         success: function(reponse) {
+                            console.log(reponse);
                         Swal.fire(
                             'Felicitation!',
                             ' modification reussi !',

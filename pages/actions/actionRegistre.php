@@ -58,20 +58,18 @@
     /** Fonction modification de la table  perception*/
     if(isset($_POST['edit_id'])){
         $id=$_POST['edit_id'];
-        $res=$db->selectalldata2("SELECT * FROM `perception` inner JOIN frais on frais.id=idFrais inner join eleves on eleves.id=idEleve WHERE perception.id='$id'");
+        $res=$db->selectalldata2("SELECT *, perception.id as idPerc FROM `perception` inner JOIN frais on frais.id=idFrais inner join eleves on eleves.id=idEleve WHERE perception.id='$id'");
         $row = $res->fetch();
         echo json_encode($row);
     }
     if (isset($_POST['action'])&& $_POST['action']=="update") {
-            
             $id=$_POST['id'];
             $montant_percu=$_POST['montant_percu'];
             $date_perception=$_POST['date_perception'];
-    
-        
-        $sql = "UPDATE  perception SET montant_percu='$montant_percu', date_perception='$date_perception' where id='$id";
-        $res = $db->update2($sql);
-        echo ($res);
+
+        $sql = "UPDATE perception SET montant_percu='$montant_percu', date_perception='$date_perception' where id='56'";
+        $data = $db->update2($sql);
+        print_r($data);
     }
 
     /** Fonction Suprimmer de la table  */
