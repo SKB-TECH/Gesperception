@@ -67,7 +67,7 @@
             $montant_percu=$_POST['montant_percu'];
             $date_perception=$_POST['date_perception'];
 
-        $sql = "UPDATE perception SET montant_percu='$montant_percu', date_perception='$date_perception' where id='56'";
+        $sql = "UPDATE perception SET montant_percu='$montant_percu', date_perception='$date_perception' where id='$id'";
         $data = $db->update2($sql);
         print_r($data);
     }
@@ -143,5 +143,3 @@
     }
     echo ($output);
 }
-
-?>

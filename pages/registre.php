@@ -1,6 +1,6 @@
 <?php
-    require_once("../Classes/crud.php");
-    $taches = new crud();
+require_once("../Classes/crud.php");
+$taches = new crud();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,25 +25,25 @@
     <title>Registre des Paie</title>
     <?php require_once("../pages/Menus/Navbar.php") ?>
     <script>
-            // affiche les resultat
-            function showSolde() {
-                    let idFrais = $('#idFrais').val()
-                    let idEleve = $('#id').val()
-                    $.ajax({
-                        url: "actions/actionRegistre.php",
-                        type: "POST",
-                        data: {
-                            action: "solde",
-                            idFrais: idFrais,
-                            idEleve: idEleve,
-                        },
-                        success: function(reponse) {
-                            console.log(reponse);
-                            $("#solde").html(reponse);
-                            // $("#solde").html(reponse);
-                        }
-                    });
+        // affiche les resultat
+        function showSolde() {
+            let idFrais = $('#idFrais').val()
+            let idEleve = $('#id').val()
+            $.ajax({
+                url: "actions/actionRegistre.php",
+                type: "POST",
+                data: {
+                    action: "solde",
+                    idFrais: idFrais,
+                    idEleve: idEleve,
+                },
+                success: function(reponse) {
+                    console.log(reponse);
+                    $("#solde").html(reponse);
+                    // $("#solde").html(reponse);
                 }
+            });
+        }
     </script>
 </head>
 
@@ -61,11 +61,11 @@
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant_percu",'perception');
-                                    $data=$res->fetch();
-                                    $entre=$data[0];
+                                <?php $res = $taches->Compte("montant_percu", 'perception');
+                                $data = $res->fetch();
+                                $entre = $data[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($entre)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($entre) ?> &nbsp;FC</h6>
                                 <p class="fs-5">ENTREES</p>
                             </div>
                         </div>
@@ -74,11 +74,11 @@
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant",'depense');
-                                    $res=$res->fetch();
-                                    $sortie1=$res[0];
+                                <?php $res = $taches->Compte("montant", 'depense');
+                                $res = $res->fetch();
+                                $sortie1 = $res[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($sortie1)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($sortie1) ?> &nbsp;FC</h6>
                                 <p class="fs-5">DEPENSES</p>
                             </div>
                         </div>
@@ -86,24 +86,24 @@
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("montant",'avance');
-                                    $des=$res->fetch();
-                                    $avance=$des[0]
+                            <div>
+                                <?php $res = $taches->Compte("montant", 'avance');
+                                $des = $res->fetch();
+                                $avance = $des[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($avance)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($avance) ?> &nbsp;FC</h6>
                                 <p class="fs-5">AVANCES</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("net",'paie');
-                                    $sal=$res->fetch();
-                                    $paie=$sal[0]
+                            <div>
+                                <?php $res = $taches->Compte("net", 'paie');
+                                $sal = $res->fetch();
+                                $paie = $sal[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($paie)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($paie) ?> &nbsp;FC</h6>
                                 <p class="fs-5">SALAIRES</p>
                             </div>
                         </div>
@@ -112,8 +112,8 @@
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div style="font-weight: 400">
-                                <h6 class="fs-2 font-bold"><?php echo($entre-$sortie1-$avance-$paie);?> &nbsp;FC</h6>
+                            <div style="font-weight: 400">
+                                <h6 class="fs-2 font-bold"><?php echo ($entre - $sortie1 - $avance - $paie); ?> &nbsp;FC</h6>
                                 <p class="fs-5">SOLDE</p>
                             </div>
                         </div>
@@ -162,13 +162,13 @@
                         <input type="hidden" id="id" name="id" required>
                         <p id="details_eleve"></p>
                         <div class="form-group">
-                            <label for="idFrais">Frais :  </label>
+                            <label for="idFrais">Frais : </label>
                             <select name="idFrais" onchange='showSolde()' id="idFrais" class="form-control" required>
-                                <option value="">Clique ici pour modifier le frais</option>  
-                               <?php 
-                                         $resFrais = $taches->selectalldata("frais");
-                                         while($data=$resFrais->fetch()){                                ?>
-                                         <option value="<?php echo $data['id'] ?>"><?php echo $data['libelle']?></option>
+                                <option value="">Clique ici pour modifier le frais</option>
+                                <?php
+                                $resFrais = $taches->selectalldata("frais");
+                                while ($data = $resFrais->fetch()) {                                ?>
+                                    <option value="<?php echo $data['id'] ?>"><?php echo $data['libelle'] ?></option>
                                 <?php } ?>
                             </select>
                             <div id="solde">
@@ -196,7 +196,7 @@
     </div>
     <!-- Fin de la fenetre modal Modification-->
 
-<!-- Fin de la fenetre modal -->
+    <!-- Fin de la fenetre modal -->
     <!-- Les lebrairies Javascript -->
     <script>
         /** fonction pour Afficher les donnes avec ajax  */
@@ -225,14 +225,14 @@
                 if ($("#form-data")[0].checkValidity()) {
                     e.preventDefault();
                     $.ajax({
-                        url:"actions/actionRegistre.php",
-                        type:"POST",
-                        data: $("#form-data").serialize()+"&action=insert",
+                        url: "actions/actionRegistre.php",
+                        type: "POST",
+                        data: $("#form-data").serialize() + "&action=insert",
                         success: function(reponse) {
-                        Swal.fire(
-                            'Felicitation!',
-                            'Elève Ajouté(e) avec success !',
-                            'success'
+                            Swal.fire(
+                                'Felicitation!',
+                                'Elève Ajouté(e) avec success !',
+                                'success'
                             )
 
                             $("#addModal").modal('hide');
@@ -244,26 +244,28 @@
             })
 
             /** La fonction pour la modification  */
-            $("body").on("click",".editBtn",function(e){
+            $("body").on("click", ".editBtn", function(e) {
                 e.preventDefault();
-                edit_id=$(this).attr('id');
+                edit_id = $(this).attr('id');
 
                 $.ajax({
-                    url:"actions/actionRegistre.php",
-                    type:"POST",
-                    data:{edit_id:edit_id},
-                    success:function(reponse){
-                       data=JSON.parse(reponse);
-                    //    console.log(data)
-                       $("#id").val(data.idPerc);
-                       $("#details_eleve").text("Elève : "+data.nom+" "+data.postnom+" "+data.prenom+"     Classe: "+data.classe);
-                       $("#idFrais").val(data.idFrais);
-                       $("#montant").val(data.montant_percu);
-                       $("#date").val(data.date_perception);
-                    //    $("#sexe").val(data.sexe);
-                    //    $("#date_naissance").val(data.date_naissance);
-                    //    $("#lieu_naissa").val(data.lieu_naissance)
-                    //    $("#classe").val(data.classe);
+                    url: "actions/actionRegistre.php",
+                    type: "POST",
+                    data: {
+                        edit_id: edit_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+                        //    console.log(data)
+                        $("#id").val(data.idPerc);
+                        $("#details_eleve").text("Elève : " + data.nom + " " + data.postnom + " " + data.prenom + "     Classe: " + data.classe);
+                        $("#idFrais").val(data.idFrais);
+                        $("#montant").val(data.montant_percu);
+                        $("#date").val(data.date_perception);
+                        //    $("#sexe").val(data.sexe);
+                        //    $("#date_naissance").val(data.date_naissance);
+                        //    $("#lieu_naissa").val(data.lieu_naissance)
+                        //    $("#classe").val(data.classe);
                     }
                 })
             });
@@ -272,15 +274,15 @@
                 if ($("#edit-form-data")[0].checkValidity()) {
                     e.preventDefault();
                     $.ajax({
-                        url:"actions/actionRegistre.php",
-                        type:"POST",
-                        data: $("#edit-form-data").serialize()+"&action=update",
+                        url: "actions/actionRegistre.php",
+                        type: "POST",
+                        data: $("#edit-form-data").serialize() + "&action=update",
                         success: function(reponse) {
                             console.log(reponse);
-                        Swal.fire(
-                            'Felicitation!',
-                            ' modification reussi !',
-                            'success'
+                            Swal.fire(
+                                'Felicitation!',
+                                ' modification reussi !',
+                                'success'
                             )
                             $("#editModal").modal('hide');
                             $("#edit-form-data")[0].reset();
@@ -290,12 +292,11 @@
                 }
             })
             /** Fonction Supprimer de la table */
-            $("body").on('click','.deleteBtn',function(e){
+            $("body").on('click', '.deleteBtn', function(e) {
                 e.preventDefault();
-                var tr=$(this).closest('tr');
-                del_id=$(this).attr('id');
-                Swal.fire
-                ({
+                var tr = $(this).closest('tr');
+                del_id = $(this).attr('id');
+                Swal.fire({
                     title: 'Voulez-vous supprimer cette information ?',
                     text: "une fois supprimer vous ne l'aurez plus !!",
                     icon: 'warning',
@@ -303,50 +304,51 @@
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes,Delete !!!'
-                    }).then((result) => {
+                }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                        url:"actions/actionRegistre.php",
-                        type:"POST",
-                        data: {del_id:del_id},
-                        success: function(reponse) {
-                           tr.css('background-color','#ff6666')
-                            Swal.fire(
-                            'Felicitation!!!',
-                            'Suppression effectuée avec success !',
-                            'success'
-                            )
-                            showAllUser();
-                        }
-                    });
+                            url: "actions/actionRegistre.php",
+                            type: "POST",
+                            data: {
+                                del_id: del_id
+                            },
+                            success: function(reponse) {
+                                tr.css('background-color', '#ff6666')
+                                Swal.fire(
+                                    'Felicitation!!!',
+                                    'Suppression effectuée avec success !',
+                                    'success'
+                                )
+                                showAllUser();
+                            }
+                        });
                     }
                 })
             })
             /** Info plus */
-            $("body").on("click",'.infoBtn',function(e)
-            {
+            $("body").on("click", '.infoBtn', function(e) {
                 e.preventDefault();
-                info_id= $(this).attr('id');
+                info_id = $(this).attr('id');
                 $.ajax({
-                    url:"actions/actionRegistre.php",
-                    type:"POST",
-                    data:{info_id:info_id},
-                    success:function(reponse){
-                        data=JSON.parse(reponse);
-                        Swal.fire(
-                            {
-                                title:'<Strong class="text-left"> Code Eleve :'+data.id+'</Strong>',
-                                type:"info",
-                                html:'<b class="text-left">Noms:'+data.nom+" "+data.postnom+" "+data.prenom+
-                                '</b></br><b class="text-left">Sexe:'+data.sexe+'</b></br><b class="text-left">Classe:'+data.classe+'</b>',
-                                showCancelButton:true
-                            }
-                        )
+                    url: "actions/actionRegistre.php",
+                    type: "POST",
+                    data: {
+                        info_id: info_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+                        Swal.fire({
+                            title: '<Strong class="text-left"> Code Eleve :' + data.id + '</Strong>',
+                            type: "info",
+                            html: '<b class="text-left">Noms:' + data.nom + " " + data.postnom + " " + data.prenom +
+                                '</b></br><b class="text-left">Sexe:' + data.sexe + '</b></br><b class="text-left">Classe:' + data.classe + '</b>',
+                            showCancelButton: true
+                        })
                         showAllUser();
                     }
                 })
-                
-                
+
+
             });
         });
     </script>
