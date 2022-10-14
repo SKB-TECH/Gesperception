@@ -254,7 +254,7 @@
                     data:{edit_id:edit_id},
                     success:function(reponse){
                        data=JSON.parse(reponse);
-                       console.log(data)
+                    //    console.log(data)
                        $("#id").val(data.idPerc);
                        $("#details_eleve").text("Elève : "+data.nom+" "+data.postnom+" "+data.prenom+"     Classe: "+data.classe);
                        $("#idFrais").val(data.idFrais);
