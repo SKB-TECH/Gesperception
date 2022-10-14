@@ -54,7 +54,7 @@ class Crud extends Database
         }
         public function update2($sql)
         {
-                $this->connection->query($sql);
+                 $this->connection->query($sql);
                 return true;
         }
         // suppression d'une donnees dans la table 
