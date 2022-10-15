@@ -1,9 +1,9 @@
 <?php
-     error_reporting( E_ALL );
-     ini_set( 'display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-    require_once("../Classes/crud.php");
-    $taches = new crud();
+require_once("../Classes/crud.php");
+$taches = new crud();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,25 +27,25 @@
 
     <title>Percetion</title>
     <script>
-            // affiche les resultat
-            function showSolde() {
-                    let idFrais = $('#idFrais').val()
-                    let idEleve = $('#id').val()
-                    $.ajax({
-                        url: "actions/actionPerception.php",
-                        type: "POST",
-                        data: {
-                            action: "solde",
-                            idFrais: idFrais,
-                            idEleve: idEleve,
-                        },
-                        success: function(reponse) {
-                            console.log(reponse);
-                            $("#solde").html(reponse);
-                            // $("#solde").html(reponse);
-                        }
-                    });
+        // affiche les resultat
+        function showSolde() {
+            let idFrais = $('#idFrais').val()
+            let idEleve = $('#id').val()
+            $.ajax({
+                url: "actions/actionPerception.php",
+                type: "POST",
+                data: {
+                    action: "solde",
+                    idFrais: idFrais,
+                    idEleve: idEleve,
+                },
+                success: function(reponse) {
+                    console.log(reponse);
+                    $("#solde").html(reponse);
+                    // $("#solde").html(reponse);
                 }
+            });
+        }
     </script>
     <?php require_once("../pages/Menus/Navbar.php") ?>
 </head>
@@ -64,11 +64,11 @@
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant_percu",'perception');
-                                    $data=$res->fetch();
-                                    $entre=$data[0];
+                                <?php $res = $taches->Compte("montant_percu", 'perception');
+                                $data = $res->fetch();
+                                $entre = $data[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($entre)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($entre) ?> &nbsp;$</h6>
                                 <p class="fs-5">ENTREES</p>
                             </div>
                         </div>
@@ -77,11 +77,11 @@
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant",'depense');
-                                    $res=$res->fetch();
-                                    $sortie1=$res[0];
+                                <?php $res = $taches->Compte("montant", 'depense');
+                                $res = $res->fetch();
+                                $sortie1 = $res[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($sortie1)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($sortie1) ?> &nbsp;$</h6>
                                 <p class="fs-5">DEPENSES</p>
                             </div>
                         </div>
@@ -89,24 +89,24 @@
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("montant",'avance');
-                                    $des=$res->fetch();
-                                    $avance=$des[0]
+                            <div>
+                                <?php $res = $taches->Compte("montant", 'avance');
+                                $des = $res->fetch();
+                                $avance = $des[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($avance)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($avance) ?> &nbsp;$</h6>
                                 <p class="fs-5">AVANCES</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("net",'paie');
-                                    $sal=$res->fetch();
-                                    $paie=$sal[0]
+                            <div>
+                                <?php $res = $taches->Compte("net", 'paie');
+                                $sal = $res->fetch();
+                                $paie = $sal[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($paie)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($paie) ?> &nbsp;$</h6>
                                 <p class="fs-5">SALAIRES</p>
                             </div>
                         </div>
@@ -115,8 +115,8 @@
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div style="font-weight: 400">
-                                <h6 class="fs-2 font-bold"><?php echo($entre-$sortie1-$avance-$paie);?> &nbsp;FC</h6>
+                            <div style="font-weight: 400">
+                                <h6 class="fs-2 font-bold"><?php echo ($entre - $sortie1 - $avance - $paie); ?> &nbsp;$</h6>
                                 <p class="fs-5">SOLDE</p>
                             </div>
                         </div>
@@ -136,10 +136,10 @@
                         <h5 class="mt-2 text-primary">Perception des frais scolaire</h5>
                     </div>
 
-                    <div class="clog-lg-6"> 
+                    <div class="clog-lg-6">
                         <a href="registre.php" class="btn btn-success m-1 float-lg"><i class="fa fa-table fa-lg"></i>
                             Voir le registre des paiements
-                        </a> 
+                        </a>
                     </div>
                 </div>
                 <hr class="my-1">
@@ -170,13 +170,13 @@
                         <input type="hidden" id="id" name="id">
                         <p id="details_eleve"></p>
                         <div class="form-group">
-                            <label for="idFrais">Frais :  </label>
+                            <label for="idFrais">Frais : </label>
                             <select name="idFrais" onchange='showSolde()' id="idFrais" class="form-control" required>
-                                <option value=""></option>  
-                               <?php 
-                                         $resFrais = $taches->selectalldata("frais");
-                                         while($data=$resFrais->fetch()){                                ?>
-                                         <option value="<?php echo $data['id'] ?>"><?php echo $data['libelle']?></option>
+                                <option value=""></option>
+                                <?php
+                                $resFrais = $taches->selectalldata("frais");
+                                while ($data = $resFrais->fetch()) {                                ?>
+                                    <option value="<?php echo $data['id'] ?>"><?php echo $data['libelle'] ?></option>
                                 <?php } ?>
                             </select>
                             <div id="solde">
@@ -201,12 +201,11 @@
             </div>
         </div>
     </div>
-    
-  
+
+
 
     <!-- Les lebrairies Javascript -->
     <script>
-
         // 
         /** fonction pour Afficher les donnes avec ajax  */
         $(document).ready(() => {
@@ -229,24 +228,24 @@
                     }
                 });
             }
-            
+
             /** Fonction insert dans la bdd */
             $("#insert").click(function(e) {
                 if ($("#form-data")[0].checkValidity()) {
                     e.preventDefault();
                     $.ajax({
-                        url:"actions/actionPerception.php",
-                        type:"POST",
-                        data: $("#form-data").serialize()+"&action=insert",
+                        url: "actions/actionPerception.php",
+                        type: "POST",
+                        data: $("#form-data").serialize() + "&action=insert",
                         success: function(reponse) {
 
-                             window.location.href=`./impressions/recu.php?idRec=${reponse}`,
+                            window.location.href = `./impressions/recu.php?idRec=${reponse}`,
 
-                            Swal.fire(
-                                'Felicitation',                            // 'Felicitation!',
-                                "Payement enregistré",
-                                'success'
-                            )
+                                Swal.fire(
+                                    'Felicitation', // 'Felicitation!',
+                                    "Payement enregistré",
+                                    'success'
+                                )
                             $("#addModal").modal('hide');
                             $("#form-data")[0].reset();
                             showAllUser();
@@ -256,54 +255,58 @@
             })
 
             /** La fonction pour la modification  */
-            $("body").on("click",".editBtn",function(e){
+            $("body").on("click", ".editBtn", function(e) {
                 e.preventDefault();
-                edit_id=$(this).attr('id');
+                edit_id = $(this).attr('id');
 
                 $.ajax({
-                    url:"actions/actionPerception.php",
-                    type:"POST",
-                    data:{edit_id:edit_id},
-                    success:function(reponse){
-                       data=JSON.parse(reponse);                        
-                       $("#id").val(data.id);
-                       $("#details_eleve").text("Elève : "+data.nom+" "+data.postnom+" "+data.prenom+"       Classe: "+data.classe);
+                    url: "actions/actionPerception.php",
+                    type: "POST",
+                    data: {
+                        edit_id: edit_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+                        $("#id").val(data.id);
+                        $("#details_eleve").text("Elève : " + data.nom + " " + data.postnom + " " + data.prenom + "       Classe: " + data.classe);
                     }
                 })
             });
 
             /** Info plus */
-            $("body").on("click",'.infoBtn',function(e)
-            {e.preventDefault();
-                info_id= $(this).attr('id');
+            $("body").on("click", '.infoBtn', function(e) {
+                e.preventDefault();
+                info_id = $(this).attr('id');
                 $.ajax({
-                    url:"./actions/actionPerception.php",
-                    type:"POST",
-                    data:{info_id:info_id},
-                    success:function(reponse){
-                        data=JSON.parse(reponse);
-                     
-                        if(data.length > 0){
-                                let html=''+data[0].nom+' '+data[0].postnom+' '+data[0].prenom+' '+data[0].classe+'<br>'+ data.map((res)=>{
-                                let tr1= res.somme- (res.somme - res.tranche1);
-                                let tr2= (res.somme- tr1) - ((res.somme- tr1)-res.tranche2);
-                                    let tr3= res.somme - tr1 - tr2;
-                                    return(
-                                        '<b class="text-left">'+res.libelle+' : '
-                                            +res.somme+' '+res.devise+' en '+res.mouvement+' versement(s)'+
-                                        '</b></hr><ol>'+
-                                         '<li>Premiere tranche : '+tr1+' </li>'
-                                        +'<li>Deuxieme tranche : '+tr2+'</li>'
-                                        +'<li>Troisieme tranche : '+tr3+' </li>'
-                                        +'</ol>'
-                                    )
-                                })
-                            }
+                    url: "./actions/actionPerception.php",
+                    type: "POST",
+                    data: {
+                        info_id: info_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+
+                        if (data.length > 0) {
+                            let html = '' + data[0].nom + ' ' + data[0].postnom + ' ' + data[0].prenom + ' ' + data[0].classe + '<br>' + data.map((res) => {
+                                let tr1 = res.somme - (res.somme - res.tranche1);
+                                let tr2 = (res.somme - tr1) - ((res.somme - tr1) - res.tranche2);
+                                let tr3 = res.somme - tr1 - tr2;
+                                return (
+                                    '<b class="text-left">' + res.libelle + ' : ' +
+                                    res.somme + ' ' + res.devise + ' en ' + res.mouvement + ' versement(s)' +
+                                    '</b></hr><ol>' +
+                                    '<li>Premiere tranche : ' + tr1 + ' </li>' +
+                                    '<li>Deuxieme tranche : ' + tr2 + '</li>' +
+                                    '<li>Troisieme tranche : ' + tr3 + ' </li>' +
+                                    '</ol>'
+                                )
+                            })
+                        }
                         showAllUser();
                     }
                 })
-                
-                
+
+
             });
         });
     </script>

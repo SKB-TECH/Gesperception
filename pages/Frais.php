@@ -1,6 +1,6 @@
 <?php
-    require_once("../Classes/crud.php");
-    $taches = new crud();
+require_once("../Classes/crud.php");
+$taches = new crud();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
 
     <link rel="stylesheet" href="../font/font-awesome-4.7.0/css/font-awesome.min.css">
 
-    <title>Gestion  des frais </title>
+    <title>Gestion des frais </title>
     <?php require_once("../pages/Menus/Navbar.php") ?>
 </head>
 
@@ -40,11 +40,11 @@
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant_percu",'perception');
-                                    $data=$res->fetch();
-                                    $entre=$data[0];
+                                <?php $res = $taches->Compte("montant_percu", 'perception');
+                                $data = $res->fetch();
+                                $entre = $data[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($entre)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($entre) ?> &nbsp;$</h6>
                                 <p class="fs-5">ENTREES</p>
                             </div>
                         </div>
@@ -53,11 +53,11 @@
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant",'depense');
-                                    $res=$res->fetch();
-                                    $sortie1=$res[0];
+                                <?php $res = $taches->Compte("montant", 'depense');
+                                $res = $res->fetch();
+                                $sortie1 = $res[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($sortie1)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($sortie1) ?> &nbsp;$</h6>
                                 <p class="fs-5">DEPENSES</p>
                             </div>
                         </div>
@@ -65,24 +65,24 @@
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("montant",'avance');
-                                    $des=$res->fetch();
-                                    $avance=$des[0]
+                            <div>
+                                <?php $res = $taches->Compte("montant", 'avance');
+                                $des = $res->fetch();
+                                $avance = $des[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($avance)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($avance) ?> &nbsp;$</h6>
                                 <p class="fs-5">AVANCES</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("net",'paie');
-                                    $sal=$res->fetch();
-                                    $paie=$sal[0]
+                            <div>
+                                <?php $res = $taches->Compte("net", 'paie');
+                                $sal = $res->fetch();
+                                $paie = $sal[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($paie)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($paie) ?> &nbsp;$</h6>
                                 <p class="fs-5">SALAIRES</p>
                             </div>
                         </div>
@@ -91,8 +91,8 @@
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div style="font-weight: 400">
-                                <h6 class="fs-2 font-bold"><?php echo($entre-$sortie1-$avance-$paie);?> &nbsp;FC</h6>
+                            <div style="font-weight: 400">
+                                <h6 class="fs-2 font-bold"><?php echo ($entre - $sortie1 - $avance - $paie); ?> &nbsp;$</h6>
                                 <p class="fs-5">SOLDE</p>
                             </div>
                         </div>
@@ -147,25 +147,25 @@
                             <label for="libelle">Libelle</label>
                             <input type="text" name="libelle" class="form-control" placeholder="Libellé frais" required>
                         </div>
-                       
-                        
+
+
                         <div class="form-group">
                             <label for="montant">Montant</label>
 
-                            <input type="number" min="1" name="montant" class="form-control" placeholder="Montant"  required>
+                            <input type="number" min="1" name="montant" class="form-control" placeholder="Montant" required>
                         </div>
 
                         <div class="form-group ">
-                            <label for="montant" class="col-12">Valeur de  tranches (Laissez vide sinon) : </label>
+                            <label for="montant" class="col-12">Valeur de tranches (Laissez vide sinon) : </label>
                             <div class="d-flex">
-                                 <input type="number" min="0"  name="tranche1" class="form-control col-4" placeholder="Tranche 1" id="montant" required>
-                                <input type="number" min="0"  name="tranche2"  class="form-control col-4" placeholder="Tranche 2" id="montant" required>
-                                <input type="number" min="0"  name="tranche3"  class="form-control col-4" placeholder="Tranche 3" id="montant" required>
+                                <input type="number" min="0" name="tranche1" class="form-control col-4" placeholder="Tranche 1" id="montant" required>
+                                <input type="number" min="0" name="tranche2" class="form-control col-4" placeholder="Tranche 2" id="montant" required>
+                                <input type="number" min="0" name="tranche3" class="form-control col-4" placeholder="Tranche 3" id="montant" required>
                             </div>
                         </div>
                         <div class="form-group">
-                             <label for="Devise">Devise</label>
-                             <select name="devise" class="form-control"  required>
+                            <label for="Devise">Devise</label>
+                            <select name="devise" class="form-control" required>
                                 <option value="">Selectionner une devise monnetaire</option>
                                 <option value="$">Dollars</option>
                                 <option value="FC">Francs Congolais</option>
@@ -180,7 +180,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modification Modal -->
     <div class="modal fade" id="editModal">
         <div class="modal-dialog modal-dialog-centered">
@@ -199,8 +199,8 @@
                             <label for="libelle">Libelle</label>
                             <input type="text" id="libelle" name="libelle" class="form-control" placeholder="Libellé frais" required>
                         </div>
-                       
-                        
+
+
                         <div class="form-group">
                             <label for="montqnt">Montant</label>
 
@@ -208,16 +208,16 @@
                         </div>
 
                         <div class="form-group ">
-                            <label for="montant" class="col-12">Valeur de  tranches (Laissez vide sinon) : </label>
+                            <label for="montant" class="col-12">Valeur de tranches (Laissez vide sinon) : </label>
                             <div class="d-flex">
-                                 <input type="number" min="0"  name="tranche1" id="tranche1" class="form-control col-4" placeholder="Tranche 1" id="montant" required>
-                                <input type="number" min="0"  name="tranche2" id="tranche2" class="form-control col-4" placeholder="Tranche 2" id="montant" required>
-                                <input type="number" min="0"  name="tranche3" id="tranche3" class="form-control col-4" placeholder="Tranche 3" id="montant" required>
+                                <input type="number" min="0" name="tranche1" id="tranche1" class="form-control col-4" placeholder="Tranche 1" id="montant" required>
+                                <input type="number" min="0" name="tranche2" id="tranche2" class="form-control col-4" placeholder="Tranche 2" id="montant" required>
+                                <input type="number" min="0" name="tranche3" id="tranche3" class="form-control col-4" placeholder="Tranche 3" id="montant" required>
                             </div>
                         </div>
                         <div class="form-group">
-                             <label for="Devise">Devise</label>
-                             <select name="devise" class="form-control" id="devise" required>
+                            <label for="Devise">Devise</label>
+                            <select name="devise" class="form-control" id="devise" required>
                                 <option value="">Selectionner une devise monnetaire</option>
                                 <option value="$">Dollars</option>
                                 <option value="FC">Francs Congolais</option>
@@ -235,7 +235,7 @@
     </div>
     <!-- Fin de la fenetre modal Modification-->
 
-<!-- Fin de la fenetre modal -->
+    <!-- Fin de la fenetre modal -->
     <!-- Les lebrairies Javascript -->
     <script>
         /** fonction pour Afficher les donnes avec ajax  */
@@ -264,15 +264,15 @@
                 if ($("#form-data")[0].checkValidity()) {
                     e.preventDefault();
                     $.ajax({
-                        url:"./actions/actionFrais.php",
-                        type:"POST",
-                        data: $("#form-data").serialize()+"&action=insert",
+                        url: "./actions/actionFrais.php",
+                        type: "POST",
+                        data: $("#form-data").serialize() + "&action=insert",
                         success: function(reponse) {
                             console.log(reponse)
                             Swal.fire(
-                            'Felicitation!',
-                            'Frias Ajouté(e) avec success !',
-                            'success'
+                                'Felicitation!',
+                                'Frias Ajouté(e) avec success !',
+                                'success'
                             )
 
                             $("#addModal").modal('hide');
@@ -284,24 +284,26 @@
             })
 
             /** La fonction pour la modification  */
-            $("body").on("click",".editBtn",function(e){
+            $("body").on("click", ".editBtn", function(e) {
                 e.preventDefault();
-                edit_id=$(this).attr('id');
+                edit_id = $(this).attr('id');
 
                 $.ajax({
-                    url:"./actions/actionFrais.php",
-                    type:"POST",
-                    data:{edit_id:edit_id},
-                    success:function(reponse){
-                       data=JSON.parse(reponse);
-                    console.log(data)                        
-                       $("#id").val(data.id);
-                       $("#libelle").val(data.libelle);
-                       $("#montant").val(data.montant_frais);
-                       $("#tranche1").val(data.tranche1);
-                       $("#tranche2").val(data.tranche2);
-                       $("#tranche3").val(data.tranche3);
-                       $("#devise").val(data.devise);
+                    url: "./actions/actionFrais.php",
+                    type: "POST",
+                    data: {
+                        edit_id: edit_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+                        console.log(data)
+                        $("#id").val(data.id);
+                        $("#libelle").val(data.libelle);
+                        $("#montant").val(data.montant_frais);
+                        $("#tranche1").val(data.tranche1);
+                        $("#tranche2").val(data.tranche2);
+                        $("#tranche3").val(data.tranche3);
+                        $("#devise").val(data.devise);
                     }
                 })
             });
@@ -311,15 +313,15 @@
                 if ($("#edit-form-data")[0].checkValidity()) {
                     e.preventDefault();
                     $.ajax({
-                        url:"./actions/actionFrais.php",
-                        type:"POST",
-                        data: $("#edit-form-data").serialize()+"&action=update",
+                        url: "./actions/actionFrais.php",
+                        type: "POST",
+                        data: $("#edit-form-data").serialize() + "&action=update",
                         success: function(reponse) {
                             console.log(reponse)
-                        Swal.fire(
-                            'Felicitation!',
-                            ' Mise a jour reussie !',
-                            'success'
+                            Swal.fire(
+                                'Felicitation!',
+                                ' Mise a jour reussie !',
+                                'success'
                             )
                             $("#editModal").modal('hide');
                             $("#edit-form-data")[0].reset();
@@ -330,12 +332,11 @@
             })
 
             /** Fonction Supprimer de la table */
-            $("body").on('click','.deleteBtn',function(e){
+            $("body").on('click', '.deleteBtn', function(e) {
                 e.preventDefault();
-                var tr=$(this).closest('tr');
-                del_id=$(this).attr('id');
-                Swal.fire
-                ({
+                var tr = $(this).closest('tr');
+                del_id = $(this).attr('id');
+                Swal.fire({
                     title: 'Voulez-vous supprimer cette information ?',
                     text: "une fois supprimer vous ne l'aurez plus !!",
                     icon: 'warning',
@@ -343,56 +344,57 @@
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes,Delete !!!'
-                    }).then((result) => {
+                }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                        url:"./actions/actionFrais.php",
-                        type:"POST",
-                        data: {del_id:del_id},
-                        success: function(reponse) {
-                           tr.css('background-color','#ff6666')
-                            Swal.fire(
-                            'Felicitation!!!',
-                            'Suppression effectuée avec success !',
-                            'success'
-                            )
-                            showAllUser();
-                        }
-                    });
+                            url: "./actions/actionFrais.php",
+                            type: "POST",
+                            data: {
+                                del_id: del_id
+                            },
+                            success: function(reponse) {
+                                tr.css('background-color', '#ff6666')
+                                Swal.fire(
+                                    'Felicitation!!!',
+                                    'Suppression effectuée avec success !',
+                                    'success'
+                                )
+                                showAllUser();
+                            }
+                        });
                     }
                 })
             })
 
 
             /** Info plus */
-            $("body").on("click",'.infoBtn',function(e)
-            {
+            $("body").on("click", '.infoBtn', function(e) {
                 e.preventDefault();
-                info_id= $(this).attr('id');
+                info_id = $(this).attr('id');
                 $.ajax({
-                    url:"./actions/actionFrais.php",
-                    type:"POST",
-                    data:{info_id:info_id},
-                    success:function(reponse){
-                        data=JSON.parse(reponse);
-                        Swal.fire(
-                            {
-                                title:'<Strong class="text-left"> ID:  '+data.id+'</Strong>',
-                                type:"info",
+                    url: "./actions/actionFrais.php",
+                    type: "POST",
+                    data: {
+                        info_id: info_id
+                    },
+                    success: function(reponse) {
+                        data = JSON.parse(reponse);
+                        Swal.fire({
+                            title: '<Strong class="text-left"> ID:  ' + data.id + '</Strong>',
+                            type: "info",
 
-                                html:'<b class="text-left">Libellé:  '+data.libelle+'</b><br><b class="text-left">Montant total:  '+data.montant_frais+' '
-                                +data.devise+'</b><hr><b class="text-left">Premiere tranche:   '+data.tranche1+' '+data.devise+'</b><br><b class="text-left"> Deuxime tranche:  '
-                                +data.tranche2+' '+data.devise+'</b><br><b class="text-left">Troisieme tranche:  '+data.tranche3+' '+data.devise+'</b>',
+                            html: '<b class="text-left">Libellé:  ' + data.libelle + '</b><br><b class="text-left">Montant total:  ' + data.montant_frais + ' ' +
+                                data.devise + '</b><hr><b class="text-left">Premiere tranche:   ' + data.tranche1 + ' ' + data.devise + '</b><br><b class="text-left"> Deuxime tranche:  ' +
+                                data.tranche2 + ' ' + data.devise + '</b><br><b class="text-left">Troisieme tranche:  ' + data.tranche3 + ' ' + data.devise + '</b>',
 
-                                showCancelButton:true
-                            }
-                        )
+                            showCancelButton: true
+                        })
                         showAllUser();
                         // console.log(info_id);
                     }
                 })
-                
-                
+
+
             });
         });
     </script>

@@ -1,7 +1,7 @@
 <?php
 
-    require_once("../Classes/crud.php");
-    $taches = new crud();
+require_once("../Classes/crud.php");
+$taches = new crud();
 ?>
 
 
@@ -45,11 +45,11 @@
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant_percu",'perception');
-                                    $data=$res->fetch();
-                                    $entre=$data[0];
+                                <?php $res = $taches->Compte("montant_percu", 'perception');
+                                $data = $res->fetch();
+                                $entre = $data[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($entre)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($entre) ?> &nbsp;$</h6>
                                 <p class="fs-5">ENTREES</p>
                             </div>
                         </div>
@@ -58,11 +58,11 @@
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <?php $res=$taches->Compte("montant",'depense');
-                                    $res=$res->fetch();
-                                    $sortie1=$res[0];
+                                <?php $res = $taches->Compte("montant", 'depense');
+                                $res = $res->fetch();
+                                $sortie1 = $res[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($sortie1)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($sortie1) ?> &nbsp;$</h6>
                                 <p class="fs-5">DEPENSES</p>
                             </div>
                         </div>
@@ -70,24 +70,24 @@
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("montant",'avance');
-                                    $des=$res->fetch();
-                                    $avance=$des[0]
+                            <div>
+                                <?php $res = $taches->Compte("montant", 'avance');
+                                $des = $res->fetch();
+                                $avance = $des[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($avance)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($avance) ?> &nbsp;$</h6>
                                 <p class="fs-5">AVANCES</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div>
-                                <?php $res=$taches->Compte("net",'paie');
-                                    $sal=$res->fetch();
-                                    $paie=$sal[0]
+                            <div>
+                                <?php $res = $taches->Compte("net", 'paie');
+                                $sal = $res->fetch();
+                                $paie = $sal[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo($paie)?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($paie) ?> &nbsp;$</h6>
                                 <p class="fs-5">SALAIRES</p>
                             </div>
                         </div>
@@ -96,8 +96,8 @@
 
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
-                        <div style="font-weight: 400">
-                                <h6 class="fs-2 font-bold"><?php echo($entre-$sortie1-$avance-$paie);?> &nbsp;FC</h6>
+                            <div style="font-weight: 400">
+                                <h6 class="fs-2 font-bold"><?php echo ($entre - $sortie1 - $avance - $paie); ?> &nbsp;$</h6>
                                 <p class="fs-5">SOLDE</p>
                             </div>
                         </div>
@@ -172,11 +172,11 @@
                             <input type="text" id="mituelle" name="mituelle" class="form-control" placeholder="mituelle" required>
                         </div>
                         <div class="form-group">
-                            <input type="text"  id="avancement" name="avance" class="form-control text-danger" value='0' required>
+                            <input type="text" id="avancement" name="avance" class="form-control text-danger" value='0' required>
                         </div>
 
                         <div class="form-group">
-                            <input type="text"   id="net" name="net"  class="form-control text-danger" placeholder="net A payer" class="nets" required>
+                            <input type="text" id="net" name="net" class="form-control text-danger" placeholder="net A payer" class="nets" required>
                         </div>
 
                         <div class="form-group">
@@ -228,11 +228,11 @@
                             <input type="text" id="mituelle" name="mituelle" class="form-control" placeholder="mituelle" required>
                         </div>
                         <div class="form-group">
-                            <input type="text"  id="avancement" name="avance" class="form-control text-danger" value='0' required>
+                            <input type="text" id="avancement" name="avance" class="form-control text-danger" value='0' required>
                         </div>
 
                         <div class="form-group">
-                            <input type="text"   id="net" name="net"  class="form-control text-danger" placeholder="net A payer" class="nets" required>
+                            <input type="text" id="net" name="net" class="form-control text-danger" placeholder="net A payer" class="nets" required>
                         </div>
 
                         <div class="form-group">
@@ -279,7 +279,7 @@
                     $.ajax({
                         url: "./Menus/actionsPaie.php",
                         type: "POST",
-                        data: $("#form-data").serialize() +"&action=insert",
+                        data: $("#form-data").serialize() + "&action=insert",
                         success: function(reponse) {
                             Swal.fire(
                                 'Felicitation!',
@@ -442,8 +442,8 @@
 
 
         });
-
-        </script>
+    </script>
 </body>
-    <script src="../js/calculs.js"></script>
+<script src="../js/calculs.js"></script>
+
 </html>

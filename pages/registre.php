@@ -65,7 +65,7 @@ $taches = new crud();
                                 $data = $res->fetch();
                                 $entre = $data[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo ($entre) ?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($entre) ?> &nbsp;$</h6>
                                 <p class="fs-5">ENTREES</p>
                             </div>
                         </div>
@@ -78,7 +78,7 @@ $taches = new crud();
                                 $res = $res->fetch();
                                 $sortie1 = $res[0];
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo ($sortie1) ?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($sortie1) ?> &nbsp;$</h6>
                                 <p class="fs-5">DEPENSES</p>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ $taches = new crud();
                                 $des = $res->fetch();
                                 $avance = $des[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo ($avance) ?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($avance) ?> &nbsp;$</h6>
                                 <p class="fs-5">AVANCES</p>
                             </div>
                         </div>
@@ -103,7 +103,7 @@ $taches = new crud();
                                 $sal = $res->fetch();
                                 $paie = $sal[0]
                                 ?>
-                                <h6 class="fs-2 font-bold"><?php echo ($paie) ?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($paie) ?> &nbsp;$</h6>
                                 <p class="fs-5">SALAIRES</p>
                             </div>
                         </div>
@@ -113,7 +113,7 @@ $taches = new crud();
                     <div class="col-sm-2">
                         <div class="p-3 bg-white  shadow-lg d-flex justify-content-around align-items-center rounded">
                             <div style="font-weight: 400">
-                                <h6 class="fs-2 font-bold"><?php echo ($entre - $sortie1 - $avance - $paie); ?> &nbsp;FC</h6>
+                                <h6 class="fs-2 font-bold"><?php echo ($entre - $sortie1 - $avance - $paie); ?> &nbsp;$</h6>
                                 <p class="fs-5">SOLDE</p>
                             </div>
                         </div>
